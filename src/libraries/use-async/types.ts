@@ -1,6 +1,6 @@
 export type AsyncStatus<TResult> = {
   result: TResult | undefined
-  ísLoad: boolean
+  isLoad: boolean
   isError: boolean
   errorMessage: any | undefined
   isCancel: boolean

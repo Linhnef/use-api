@@ -3,7 +3,7 @@ import { AsyncAction, AsyncCancel, AsyncReload, AsyncStatus, UseAsync } from "./
 
 const createAsyncStatus = <TResult = any>(status: Partial<AsyncStatus<TResult>> = {}): AsyncStatus<TResult> => {
   return {
-    ísLoad: false,
+    isLoad: false,
     isCancel: false,
     isError: false,
     result: undefined,
@@ -18,7 +18,7 @@ export const useAsync: UseAsync = <TResult>(
 ) => {
   const action = typeof initializer === "function" ? (initializer as AsyncAction<TResult>) : undefined
   const result = typeof initializer !== "function" ? initializer : undefined
-  const [status, setStatus] = useState(createAsyncStatus({ ísLoad: !!action, result }))
+  const [status, setStatus] = useState(createAsyncStatus({ isLoad: !!action, result }))
   const invocationRef = useRef(0)
 
   const reload: AsyncReload<TResult | undefined> = useCallback(
@@ -27,7 +27,7 @@ export const useAsync: UseAsync = <TResult>(
         return status.result
       }
 
-      setStatus(createAsyncStatus({ ísLoad: true }))
+      setStatus(createAsyncStatus({ isLoad: true }))
 
       const invocation = invocationRef.current + 1
       invocationRef.current = invocation
@@ -37,7 +37,7 @@ export const useAsync: UseAsync = <TResult>(
 
         if (invocation === invocationRef.current) {
           setStatus((status) => {
-            if (status.isCancel || !status.ísLoad) {
+            if (status.isCancel || !status.isLoad) {
               return status
             }
 
@@ -68,7 +68,7 @@ export const useAsync: UseAsync = <TResult>(
 
   const cancel: AsyncCancel = useCallback(() => {
     setStatus((status) => {
-      if (!status.ísLoad || status.isCancel) {
+      if (!status.isLoad || status.isCancel) {
         return status
       }
 
