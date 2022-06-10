@@ -4,7 +4,7 @@ export const createAppApiClient = (api: AxiosInstance) => {
   return { getMovies: getMovies(api) };
 };
 
-type MovieResponse = {
+export type MovieResponse = {
   page: number;
   total_pages: number;
   total_results: number;
