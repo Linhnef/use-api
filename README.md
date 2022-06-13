@@ -17,14 +17,14 @@ Example : \
       isLoad : is network pending response.
       isError : is request error.
       errorMessage : message error from server.
-      isCancel :
+      isCancel : is cancel reload api.
   ```
 ### `useAction`
 
 Call a async function into useActioncustom hook, return your to end async function and get your result in ```result```.
 
 Example : \
-  ```const { result, isLoad, isError, errorMessage, isCancel } = useAction (async () => { return ...; }); ```
+  ```const { result, isRunning, isError, errorMessage, resolve, run } = useAction (async () => { return ...; }); ```
   ``` 
       result : 
       isLoad : 
