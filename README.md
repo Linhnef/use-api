@@ -13,10 +13,10 @@ Call a async function into useAsync custom hook, return your to end async functi
 Example : \
   ```const { result, isLoad, isError, errorMessage, isCancel } = useAsync (async () => { return ...; }); ```
   ``` 
-      result : 
-      isLoad : 
-      isError :
-      errorMessage :
+      result : data return on async function.
+      isLoad : is network pending response.
+      isError : is request error.
+      errorMessage : message error from server.
       isCancel :
   ```
 ### `useAction`
