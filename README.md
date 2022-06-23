@@ -34,8 +34,7 @@ Example : \
         run: run with async function arguments.
   ```
   
-  ### `Example`
-  useAsync : \
+ ### `Example useAsync`
   ```
       const asyncFuction = () => axios.get('/getExample')
       const { result, isLoad, isError, errorMessage, isCancel } = useAsync(async () => {
@@ -45,16 +44,32 @@ Example : \
         }
       })
   ```
-   useAction : \
+ ### `Example useAction`
+ Init : \
   ```
-      const asyncFuction = () => axios.get('/getExample')
+      const asyncFuction = () : any[] => axios.get('/getExample/page1')
       const { result, isRunning, isError, errorMessage, resolve, run } = useAction(async () => {
         const response = await asyncFuction();
         if (response) {
           return response;
         }
       })
-      
+  ```
+ Run : \
+  ```
       run();
   ```
+ Resolve : \
+  ```
+       const asyncFuction = () : any[] => axios.get('/getExample/page2')
+       const { result as moreResult } = useAsync(async () => {
+       const response = await asyncFuction();
+          if (response) {
+            return response;
+          }
+        })
+      resolve([...result, ...moreResult]);
+  ```
+  
+  
 
