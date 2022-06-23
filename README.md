@@ -35,6 +35,7 @@ Example : \
   ```
   
  ### `Example useAsync`
+  Run :
   ```
       const asyncFuction = () => axios.get('/getExample')
       const { result, isLoad, isError, errorMessage, isCancel } = useAsync(async () => {
@@ -45,7 +46,7 @@ Example : \
       })
   ```
  ### `Example useAction`
- Init : \
+ Init :
   ```
       const asyncFuction = () : any[] => axios.get('/getExample/page1')
       const { result, isRunning, isError, errorMessage, resolve, run } = useAction(async () => {
@@ -55,11 +56,11 @@ Example : \
         }
       })
   ```
- Run : \
+ Run :
   ```
       run();
   ```
- Resolve : \
+ Resolve :
   ```
        const asyncFuction = () : any[] => axios.get('/getExample/page2')
        const { result as moreResult } = useAsync(async () => {
