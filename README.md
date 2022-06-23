@@ -35,7 +35,7 @@ Example : \
   ```
   
   ### `Example`
-  <h4>useAsync</h4> \
+  useAsync : \
   ```
       const asyncFuction = () => axios.get('/getExample')
       const { result, isLoad, isError, errorMessage, isCancel } = useAsync(async () => {
@@ -44,5 +44,17 @@ Example : \
           return response;
         }
       })
+  ```
+   useAction : \
+  ```
+      const asyncFuction = () => axios.get('/getExample')
+      const { result, isRunning, isError, errorMessage, resolve, run } = useAction(async () => {
+        const response = await asyncFuction();
+        if (response) {
+          return response;
+        }
+      })
+      
+      run();
   ```
 
