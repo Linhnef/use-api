@@ -1,10 +1,11 @@
 # Getting Started My Custom Hook
 
-Available with Reactjs, React Native.
+Available with Reactjs, React Native, Nextjs,... .
 
 ## Usage
 
-In the project directory, you can run:
+In the project directory after clone, you can run:
+```$ npm start```
 
 ### `useAsync`
 
