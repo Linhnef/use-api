@@ -33,4 +33,16 @@ Example : \
         resolve: replace result with new data type T.
         run: run with async function arguments.
   ```
+  
+  ### `Example`
+  
+  ```
+      const asyncFuction = () => axios.get('/getExample')
+      const {} = useAsync(async () => {
+        const response = await asyncFuction();
+        if (response) {
+          return response;
+        }
+      })
+  ```
 
