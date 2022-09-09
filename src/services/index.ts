@@ -1,4 +1,5 @@
 import { AxiosInstance } from "axios";
+import { useCache } from "../libraries/use-cache";
 
 export const createAppApiClient = (api: AxiosInstance) => {
   return { getMovies: getMovies(api) };
@@ -32,6 +33,14 @@ const getMovies =
       const response = await api.get<MovieResponse>(
         "3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=" + page
       );
+      if(response) {
+        const { cache } = useCache({ 
+          cacheName : 'movie' ,
+          url :"3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=" + page,
+          response : response
+        })
+        cache();
+      }
       return response.data;
     } catch (error) {
       Promise.reject(error);

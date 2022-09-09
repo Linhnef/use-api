@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect, useRef, useState } from "react"
 import { AsyncAction, AsyncCancel, AsyncReload, AsyncStatus, UseAsync } from "./types"
 
@@ -14,8 +15,7 @@ const createAsyncStatus = <TResult = any>(status: Partial<AsyncStatus<TResult>> 
 
 export const useAsync: UseAsync = <TResult>(
   initializer?: AsyncAction<TResult | undefined> | TResult,
-  dependencies = [] as any
-) => {
+  dependencies = [] as any) => {
   const action = typeof initializer === "function" ? (initializer as AsyncAction<TResult>) : undefined
   const result = typeof initializer !== "function" ? initializer : undefined
   const [status, setStatus] = useState(createAsyncStatus({ isLoad: !!action, result }))

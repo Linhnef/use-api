@@ -19,5 +19,6 @@ export type AsyncResolve<TResult> = (result: TResult) => void
 export type AsyncCancel = () => void
 export type UseAsync = <TResult>(
   initializer?: AsyncAction<TResult> | TResult,
-  dependencies?: any[]
+  dependencies?: any[],
+  name? : string,
 ) => AsyncHandle<TResult>
