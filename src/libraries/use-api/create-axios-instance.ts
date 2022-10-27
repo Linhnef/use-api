@@ -1,10 +1,6 @@
-import axios, { AxiosInstance } from "axios"
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios"
 
-export type CreateApiClientArgs = {
-  baseURL?: string
-}
-
-export const createApiClient = (args: CreateApiClientArgs): AxiosInstance => {
+export const createApiClient = (args: AxiosRequestConfig): AxiosInstance => {
   const { baseURL } = args
   const api = axios.create({
     baseURL,

@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { useCache } from "../libraries/use-cache";
+import { useCache } from "../libraries/use-cache/index"
 
 export const createAppApiClient = (api: AxiosInstance) => {
   return { getMovies: getMovies(api) };

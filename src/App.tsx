@@ -9,11 +9,11 @@ import { CircularProgress } from "@mui/material";
 import { useAsync } from "./libraries/use-async";
 import { MovieResponse } from "./services";
 import { Card } from "./components/Card";
-import { DynamicContext } from "./contexts";
+import { DynamicContext } from "./libraries/use-dynamic-context";
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 
 function App() {
-  const { setData,data } = useContext(DynamicContext);
+  const { setData, data } = useContext(DynamicContext);
   const api = useApi();
   const [page, setPage] = useState<number>(1);
   const { result, resolve } = useAsync<MovieResponse>(async () => {
@@ -35,6 +35,13 @@ function App() {
         : response
     );
   });
+
+  useEffect(() => {
+    console.log("after return");
+    return () => {
+      console.log("return");
+    };
+  }, []);
 
   //const { result, isRunning, errorMessage } = waitGetMovies;
 

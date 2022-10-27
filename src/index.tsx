@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { DynamicContextProvider } from "./contexts";
+import { DynamicContextProvider } from "./libraries/use-dynamic-context";
 
 ReactDOM.render(
   <React.StrictMode>
